@@ -34,49 +34,11 @@ import {
 // Formik Validation
 import { useFormik } from "formik";
 import { validationSchema } from "../../../Validations/loginValidation";
-// API Calls
-import { getLogin } from "../../../api/config"; // Assuming this is the API call function
-// Cookies
-import { setCookie } from "../../../utils/cookies";
 
 function Login() {
   const navigate = useNavigate();
   const [showPassword, setShowpassword] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [snackMsg, setSnackmsg] = useState("");
-
-  const onSubmit = async (values) => {
-    setLoading(true)
-    try {
-      const response = await getLogin({
-        mobileNo: values.email,
-        password: values.password,
-      });
-
-      if (response?.token) {
-        setCookie("login", response.name);
-        setCookie("token", response.token);
-        setSnackmsg("Login Successfully!!");
-        setOpenSnackbar(true);
-
-        // Delay navigation to allow the user to see the success message
-        setTimeout(() => navigate("/"), 1500);
-
-      } else {
-        setSnackmsg(
-          response.error || "Invalid credentials, please try again."
-        );
-        setOpenSnackbar(true); 
-      }
-    } catch (error) {
-      console.error("Login Error:", error);
-      setSnackmsg("Network Error! Please try again.");
-      setOpenSnackbar(true); 
-    } finally {
-      setLoading(false)
-    }
-  }
 
   const formik = useFormik({
     initialValues: {

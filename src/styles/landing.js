@@ -20,7 +20,7 @@ export const BannerImgBox = styled(Box)({
 });
 
 export const WholeBox = styled(Box)(({ theme }) => ({
-  marginTop: theme.spacing(-37.5),
+  marginTop: theme.spacing(-32.5),
   width: "100%",
   display: "flex",
   justifyContent: "center",

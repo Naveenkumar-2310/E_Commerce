@@ -8,7 +8,7 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import MenuIcon from "@mui/icons-material/Menu";
 // MUI Materials
-import { Typography } from "@mui/material";
+import { Typography,Box } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import TextField from "@mui/material/TextField";
 import Tooltip from "@mui/material/Tooltip";
@@ -146,6 +146,11 @@ function Header() {
     <>
       {/* Whole Grid Container */}
       <Grid container>
+      <Box sx={{padding : "10px",fontSize : "17px",margin : "0 80px 0 0"}}>
+        <Typography variant="body2" component="p">
+            The app is only for testing purpose
+        </Typography>
+      </Box>
         <WholeContainer>
           <MenuBox>
             <Button onClick={handleOpenDrawer}>
