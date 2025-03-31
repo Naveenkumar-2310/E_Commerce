@@ -1,7 +1,7 @@
 // Hooks
 import  {useState } from "react";
 // Image Section
-import { loginLogo } from "../../../constants/Constant";
+import { IMAGES } from "../../../constants/Constant";
 // MUI Materials
 import Box from "@mui/material/Box";
 import { CircularProgress, InputAdornment } from "@mui/material";
@@ -33,7 +33,7 @@ import {
 } from "../../../styles/register";
 // Formik Validation
 import { useFormik } from "formik";
-import { validationSchema } from "../../../Validations/loginValidation";
+import { validationSchema } from "../../../validations/login";
 
 function Login() {
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ function Login() {
           <CircularProgress />
         ) : (
           <WholeBox>
-            <img src={loginLogo} alt="Login_logo" />
+            <img src={IMAGES.LOGIN_LOGO} alt="Login_logo" />
             <SignInBox>
               <SigninTypography variant="h5" component="h6">
                 Sign in with busniess credentials
