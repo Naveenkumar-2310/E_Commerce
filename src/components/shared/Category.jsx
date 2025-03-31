@@ -6,7 +6,7 @@ import {
   NameTypography,
   WrappingBox,
 } from "../../styles/category";
-import { ROUTE_PATH } from "../../router/routesPath";
+import { ROUTE_PATHS } from "../../router/routePaths";
 // Navigate hook
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +14,7 @@ export default function Category({ allCategory }) {
   const navigate = useNavigate();
 
   const handleClickCategory = (id) => {
-    navigate(`${ROUTE_PATH.SUB_CATEGORY}?id=${id}`);
+    navigate(`${ROUTE_PATHS.SUB_CATEGORY}?id=${id}`);
   };
 
   return (

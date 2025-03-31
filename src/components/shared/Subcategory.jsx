@@ -7,7 +7,7 @@ import {
   WholeGridsub,
 } from "../../styles/subcategory";
 // Router Paths
-import { ROUTE_PATH } from "../../router/routesPath";
+import { ROUTE_PATHS } from "../../router/routePaths";
 // Navigate Hook
 import { useNavigate } from "react-router-dom";
 
@@ -16,7 +16,7 @@ function Subcategory({subcategories}) {
   const navigate = useNavigate();
 
   const handleClick = (subCategoryId) => {
-    navigate(`${ROUTE_PATH.PRODUCT_LIST}?subCategoryId=${subCategoryId}`);
+    navigate(`${ROUTE_PATHS.PRODUCT_LIST}?subCategoryId=${subCategoryId}`);
   };
 
   return (

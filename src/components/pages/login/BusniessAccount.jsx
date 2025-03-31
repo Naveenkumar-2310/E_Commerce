@@ -1,7 +1,7 @@
 // Hooks
 import  {useState } from "react";
 // Image Section
-import { loginLogo } from "../../../constants/Constant";
+import { IMAGES } from "../../../constants/Constant";
 // MUI Materials
 import Box from "@mui/material/Box";
 import { CircularProgress, InputAdornment } from "@mui/material";
@@ -33,50 +33,12 @@ import {
 } from "../../../styles/register";
 // Formik Validation
 import { useFormik } from "formik";
-import { validationSchema } from "../../../Validations/loginValidation";
-// API Calls
-import { getLogin } from "../../../api/config"; // Assuming this is the API call function
-// Cookies
-import { setCookie } from "../../../utils/cookies";
+import { validationSchema } from "../../../validations/login";
 
 function Login() {
   const navigate = useNavigate();
   const [showPassword, setShowpassword] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [snackMsg, setSnackmsg] = useState("");
-
-  const onSubmit = async (values) => {
-    setLoading(true)
-    try {
-      const response = await getLogin({
-        mobileNo: values.email,
-        password: values.password,
-      });
-
-      if (response?.token) {
-        setCookie("login", response.name);
-        setCookie("token", response.token);
-        setSnackmsg("Login Successfully!!");
-        setOpenSnackbar(true);
-
-        // Delay navigation to allow the user to see the success message
-        setTimeout(() => navigate("/"), 1500);
-
-      } else {
-        setSnackmsg(
-          response.error || "Invalid credentials, please try again."
-        );
-        setOpenSnackbar(true); 
-      }
-    } catch (error) {
-      console.error("Login Error:", error);
-      setSnackmsg("Network Error! Please try again.");
-      setOpenSnackbar(true); 
-    } finally {
-      setLoading(false)
-    }
-  }
 
   const formik = useFormik({
     initialValues: {
@@ -98,7 +60,7 @@ function Login() {
           <CircularProgress />
         ) : (
           <WholeBox>
-            <img src={loginLogo} alt="Login_logo" />
+            <img src={IMAGES.LOGIN_LOGO} alt="Login_logo" />
             <SignInBox>
               <SigninTypography variant="h5" component="h6">
                 Sign in with busniess credentials

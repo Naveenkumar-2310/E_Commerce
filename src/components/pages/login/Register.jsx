@@ -31,7 +31,7 @@ import {
   WrappingBox,
 } from "../../../styles/register";
 // API Calss
-import { ROUTE_PATH } from "../../../router/routesPath";
+import { ROUTE_PATHS } from "../../../router/routePaths";
 import { CustomComponents } from "../../shared/CustomComponents";
 import { useDispatch } from "react-redux";
 import { endLoading, showSnackbar, startLoading } from "../../../redux/slice";
@@ -47,7 +47,7 @@ function Register() {
   useEffect(() => {
     const token = getCookie("token");
     if (token) {
-      navigate(ROUTE_PATH.DASHBOARD);
+      navigate(ROUTE_PATHS.DASHBOARD);
     }
   }, [navigate]);
 
@@ -64,7 +64,7 @@ function Register() {
             severity: "success",
           })
         );
-        navigate(ROUTE_PATH.LOGIN);
+        navigate(ROUTE_PATHS.LOGIN);
     } catch  {} 
   }
 
@@ -194,7 +194,7 @@ function Register() {
               </WrappingBox>
               <CreateAccountButton
                 variant="contained"
-                onClick={() => navigate(ROUTE_PATH.LOGIN)}
+                onClick={() => navigate(ROUTE_PATHS.LOGIN)}
               >
                 GO TO LOGIN
               </CreateAccountButton>
